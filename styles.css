@@ -1,0 +1,119 @@
+/* Classes */
+
+.tnr{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.text{
+    font-size: 120%;
+}
+
+.loginTextSize{
+    font-size: 140%;
+}
+
+.smallWindow{
+    display: block;
+    padding: 5%;
+    margin-top: 10%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.mediumWindow{
+    display: block;
+    padding: 5%;
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: 20%;  
+    margin-bottom: 10%;
+    border-radius: 10px;
+}
+
+.blackColor{
+    color:black;
+}
+
+.whiteColor{
+    color: white;
+}
+
+.blueButton{
+    background-color: #32327c;
+    border-radius: 20px;
+    width: 20%;
+    color: white;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    cursor: pointer;
+}
+
+.center{
+    text-align: center;
+}
+.divBanner{
+    margin-left: 0%;
+    margin-right: 0%;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.divMain{
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 10px;
+}
+
+.litButton{
+    background-color: #060668;
+    transition-duration: 0.4s;
+}
+
+/* Essentials */
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 350%;
+    margin: 0;
+ }
+
+body{
+    margin: 0%;
+}
+
+ul{
+    margin: 0%;
+}
+
+p{
+    text-align: left;
+    display: inline-block;
+}
+
+label{
+    font-size: 120%;
+}
+
+textarea{
+    display: block;
+    resize: none;
+    margin: 0 auto;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    text-align: center;
+    font-size: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+button{
+    transition-duration: 0.4s;
+    font-size: 200%;
+    font-family: 'Times New Roman', Times, serif;
+    display: inline-block;
+    border-width: 0px;
+    text-decoration: none;
+    background-color: #01012b;
+    color: white;
+    cursor: pointer;
+}
+

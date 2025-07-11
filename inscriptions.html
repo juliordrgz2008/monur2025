@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body style="background-color: white;">
+        <div class="center divBanner" style="background-color: #01012b;">
+            <ul class="whiteColor" style="margin: 0;">
+                <button id="homeButton">Home</button>
+                <button id="inscButton">Inscriptions</button>
+            </ul>
+        </div>
+        <div class="center divBanner" style="background-color: #01013F; padding-bottom: 1.5%;">
+            <img src="logo.jpg" width="40%">
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <img src="logoInstagram.png" width="1%" style="margin-right: 8px;">
+                <a style="display: inline; color: white;" target="_blank" href="https://www.instagram.com">Instagram</a>    
+            </div>
+        </div>
+        <div class="mediumWindow tnr text center" style="background-color: #e8e8e8; padding-top: 0.1%; margin-top: 1%;">
+            <h1 style="font-style: italic;">Inscripciones</h1><br>
+            <form id="inscription"> 
+                <label for="email">Correo electrónico</label>
+                <textarea id="email" name="email" cols="50" rows="3" required></textarea>
+                
+                <br><br>
+                
+                <label for="dname">Nombre de la delegación</label>
+                <textarea id="dname" name="dname" cols="50" rows="3" required></textarea>
+                
+                <br><br>
+                
+                <label for="fname">Nombre de los Faculties</label>
+                <textarea id="fname" name="fname" cols="50" rows="3" required></textarea>
+                
+                <br><br>
+                
+                <label for="fcontact">Número de contacto de los Faculties</label>
+                <textarea id="fcontact" name="fcontact" cols="50" rows="3" required></textarea>
+                <br><br>
+
+                <label for="payment">Método de pago</label>
+                <textarea id="payment" name="payment" cols="50" rows="3" required></textarea>
+                <br><br>
+
+
+                <h2>Porfavor separar los nombres de los delegados con una nueva linea.</h2>
+                <label>Delegados para Crisis</label>
+                <textarea id="delegatesForCrisis" name="delegatesForCrisis" cols="50" rows="3"></textarea>
+                <br><br>
+                <label>Delegados para Consejo de Seguridad</label>
+                <textarea id="delegatesForCS" name="delegatesForCS" cols="50" rows="3"></textarea>
+                <br><br>
+                <label>Delegados para AGNUR</label>
+                <textarea id="delegatesForAGNUR" name="delegatesForAGNUR" cols="50" rows="3"></textarea>
+                <br><br>
+                <label>Delegados para Corte</label>
+                <textarea id="delegatesForCorte" name="delegatesForCorte" cols="50" rows="3"></textarea>
+                <br><br>
+                <label>Delegados para Prensa</label>
+                <textarea id="delegatesForPrensa" name="delegatesForPrensa" cols="50" rows="3"></textarea>
+                <br><br>
+                <label>Delegados para AD-HOC</label>
+                <textarea id="delegatesForADHOC" name="delegatesForADHOC" cols="50" rows="3"></textarea>
+                <br><br>
+                <label>Delegados para Parlamento</label>
+                <textarea id="delegatesForParlamento" name="delegatesForParlamento" cols="50" rows="3"></textarea>
+                <br><br>
+                <label>Delegados para AMS</label>
+                <textarea id="delegatesForAMS" name="delegatesForAMS" cols="50" rows="3"></textarea>
+                <br><br>
+                <label>Delegados para UNESCO</label>
+                <textarea id="delegatesForUNESCO" name="delegatesForUNESCO" cols="50" rows="3"></textarea>
+                <br><br>
+
+                <label>Nombres de observadores</label>
+                <textarea id="observadores" name="observadores" cols="50" rows="3"></textarea>
+                <br><br>
+                
+                <input class="blueButton" type="submit" value="Submit" name="submitButton" id="submitButton" style="font-size: 120%;">
+                <br><br>
+            </form>
+        </div>
+        <script src="scripts.js"></script>
+        <script src="inscriptionScript.js"></script> 
+    </body>
+</html>
