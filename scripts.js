@@ -9,15 +9,17 @@ for (let x=0;x<buttons.length;x++){
 
 function hover(button){
     button.addEventListener('mouseover', function(){
+        button.classList.toggle("topButtonOff");
         button.classList.toggle("litButton");
     });;
     button.addEventListener('mouseout', function(){
-        button.classList.toggle("litButton");    
+        button.classList.toggle("topButtonOff");
+        button.classList.toggle("litButton");
     });  
 }
 
 homeButton.addEventListener("click", function(){
-    window.location.href = 'main.html';
+    window.location.href = 'index.html';
 });
 
 inscButton.addEventListener("click", function(){

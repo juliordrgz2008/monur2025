@@ -5,9 +5,9 @@
     </head>
     <body style="background-color: white;">
         <div class="center divBanner" style="background-color: #01012b;">
-            <ul class="whiteColor" style="margin: 0;">
-                <button id="homeButton">Home</button>
-                <button id="inscButton">Inscriptions</button>
+            <ul style="margin: 0;">
+                <button class="topButton topButtonOff" id="homeButton">Home</button>
+                <button class="topButton topButtonOff" id="inscButton">Inscriptions</button>
             </ul>
         </div>
         <div class="center divBanner" style="background-color: #01013F; padding-bottom: 1.5%;">
@@ -17,6 +17,7 @@
                 <a style="display: inline; color: white;" target="_blank" href="https://www.instagram.com">Instagram</a>    
             </div>
         </div>
+    <main>
         <div class="mediumWindow tnr text center" style="background-color: #e8e8e8; padding-top: 0.1%; margin-top: 1%;">
             <h1 style="font-style: italic;">Inscripciones</h1><br>
             <form id="inscription"> 
@@ -26,61 +27,308 @@
                 <br><br>
                 
                 <label for="dname">Nombre de la delegación</label>
-                <textarea id="dname" name="dname" cols="50" rows="3" required></textarea>
+                <textarea id="dname" name="Delegacion" cols="50" rows="3" required></textarea>
                 
                 <br><br>
                 
                 <label for="fname">Nombre de los Faculties</label>
-                <textarea id="fname" name="fname" cols="50" rows="3" required></textarea>
+                <textarea id="fname" name="Faculties" cols="50" rows="3" required></textarea>
                 
                 <br><br>
                 
                 <label for="fcontact">Número de contacto de los Faculties</label>
-                <textarea id="fcontact" name="fcontact" cols="50" rows="3" required></textarea>
-                <br><br>
-
-                <label for="payment">Método de pago</label>
-                <textarea id="payment" name="payment" cols="50" rows="3" required></textarea>
+                <textarea id="fcontact" name="Contacto" cols="50" rows="3" required></textarea>
                 <br><br>
 
 
-                <h2>Porfavor separar los nombres de los delegados con una nueva linea.</h2>
-                <label>Delegados para Crisis<br><b>Mixto</b></label>
-                <textarea id="delegatesForCrisis" name="delegatesForCrisis" cols="50" rows="3"></textarea>
-                <br><br>
-                <label>Delegados para Consejo de Seguridad<br><b>Mixto</b></label>
-                <textarea id="delegatesForCS" name="delegatesForCS" cols="50" rows="3"></textarea>
-                <br><br>
-                <label>Delegados para AGNUR<br><b>Basica</b></label>
-                <textarea id="delegatesForAGNUR" name="delegatesForAGNUR" cols="50" rows="3"></textarea>
-                <br><br>
-                <label>Delegados para Corte<br><b>Diversificado</b></label>
-                <textarea id="delegatesForCorte" name="delegatesForCorte" cols="50" rows="3"></textarea>
-                <br><br>
-                <label>Delegados para Prensa<br><b>Mixto</b></label>
-                <textarea id="delegatesForPrensa" name="delegatesForPrensa" cols="50" rows="3"></textarea>
-                <br><br>
-                <label>Delegados para AD-HOC<br><b>Diversificado</b></label>
-                <textarea id="delegatesForADHOC" name="delegatesForADHOC" cols="50" rows="3"></textarea>
-                <br><br>
-                <label>Delegados para Parlamento<br><b>Diversificado</b></label>
-                <textarea id="delegatesForParlamento" name="delegatesForParlamento" cols="50" rows="3"></textarea>
-                <br><br>
-                <label>Delegados para AMS<br><b>Mixto</b></label>
-                <textarea id="delegatesForAMS" name="delegatesForAMS" cols="50" rows="3"></textarea>
-                <br><br>
-                <label>Delegados para UNESCO<br><b>Basica</b></label>
-                <textarea id="delegatesForUNESCO" name="delegatesForUNESCO" cols="50" rows="3"></textarea>
-                <br><br>
-
-                <label>Nombres de observadores</label>
-                <textarea id="observadores" name="observadores" cols="50" rows="3"></textarea>
+                <label>Cantidad de cupos</label><br>
+                <input id="numberSelector" class="numberSelector" name="Cantidad de Cupos en Total" type="number" value="1" min="1">
                 <br><br>
                 
+                <h2 id="priceTitle" style="margin:0%; color: red;">Total: 5$</h2>
+                
+                <br><br>
+                <h2>Método de pago</h1>
+                <div style="display: flex;margin-left: 15%; margin-right: 15%;justify-content: space-between;">
+                    <div>
+                        <label for="payment">Pago Movil</label>
+                        <input value="Pago Movil" type="radio" name="Metodo de pago">    
+                    </div>
+                    <div>
+                        <label for="payment">Efectivo</label>
+                        <input value="Efectivo" type="radio" name="Metodo de pago">    
+                    </div>
+                    <div>
+                        <label for="payment">Zelle</label>
+                        <input value="Zelle" type="radio" name="Metodo de pago">    
+                    </div>
+                </div>
+
+
+                <h2 style="font-size: 200%;">Comités</h2>
+
+                <div>
+                    <div class="dropdownFormTitle">
+                        <div class="placeholder"></div>
+                        <p class="dropdownText">CRISIS</p>
+                        <button id="crisisDropdownButton" type="button" class="dropdownButton"></button>
+                    </div>
+                    <div id="crisisGroup" class="hidden">
+                        <div class="miniForm">
+                            <div>
+                                <label>Cantidad de Delegados</label>
+                                <br>
+                                <input class="numberSelector" id="crisisNumber" name="Cantidad para Crisis" type="number" value="1" min="1">
+                            </div>
+                            <div>
+                                <label>Delegados para Crisis<br><b>Mixto</b></label>
+                                <textarea rows="1" id="delegatesForCrisis" name="Delegados para Crisis"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Cargos Disponibles</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <div class="dropdownFormTitle">
+                        <div class="placeholder"></div>
+                        <p class="dropdownText">CONSEJO DE SEGURIDAD</p>
+                        <button id="CSDropdownButton" type="button" class="dropdownButton"></button>
+                    </div>
+                    <div id="CSGroup" class="hidden">
+                        <div class="miniForm">
+                            <div>
+                                <label>Cantidad de Delegados</label>
+                                <br>
+                                <input class="numberSelector" id="CSNumber" name="Cantidad para CS" type="number" value="1" min="1">
+                            </div>
+                            <div>
+                                <label>Delegados para Consejo de Seguridad<br><b>Mixto</b></label>
+                                <textarea rows="1" id="delegatesForCS" name="Delegados para CS"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Cargos Disponibles</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <div class="dropdownFormTitle">
+                        <div class="placeholder"></div>
+                        <p class="dropdownText">AGNUR</p>
+                        <button id="AGNURDropdownButton" type="button" class="dropdownButton"></button>
+                    </div>
+                    <div id="AGNURGroup" class="hidden">
+                        <div class="miniForm">
+                            <div>
+                                <label>Cantidad de Delegados</label>
+                                <br>
+                                <input class="numberSelector" id="AGNURNumber" name="Cantidad para AGNUR" type="number" value="1" min="1">
+                            </div>
+                            <div>
+                                <label>Delegados para AGNUR<br><b>Mixto</b></label>
+                                <textarea rows="1" id="delegatesForAGNUR" name="Delegados para AGNUR"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Cargos Disponibles</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <div class="dropdownFormTitle">
+                        <div class="placeholder"></div>
+                        <p class="dropdownText">CORTE</p>
+                        <button id="corteDropdownButton" type="button" class="dropdownButton"></button>
+                    </div>
+                    <div id="corteGroup" class="hidden">
+                        <div class="miniForm">
+                            <div>
+                                <label>Cantidad de Delegados</label>
+                                <br>
+                                <input class="numberSelector" id="corteNumber" name="Cantidad para Corte" type="number" value="1" min="1">
+                            </div>
+                            <div>
+                                <label>Delegados para Corte<br><b>Mixto</b></label>
+                                <textarea rows="1" id="delegatesForcorte" name="Delegados para Corte"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Cargos Disponibles</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <div class="dropdownFormTitle">
+                        <div class="placeholder"></div>
+                        <p class="dropdownText">PRENSA</p>
+                        <button id="prensaDropdownButton" type="button" class="dropdownButton"></button>
+                    </div>
+                    <div id="prensaGroup" class="hidden">
+                        <div class="miniForm">
+                            <div>
+                                <label>Cantidad de Delegados</label>
+                                <br>
+                                <input class="numberSelector" id="prensaNumber" name="Cantidad para Prensa" type="number" value="1" min="1">
+                            </div>
+                            <div>
+                                <label>Delegados para Prensa<br><b>Mixto</b></label>
+                                <textarea rows="1" id="delegatesForprensa" name="Delegados para Prensa"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Cargos Disponibles</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <div class="dropdownFormTitle">
+                        <div class="placeholder"></div>
+                        <p class="dropdownText">AD-HOC</p>
+                        <button id="adhocDropdownButton" type="button" class="dropdownButton"></button>
+                    </div>
+                    <div id="adhocGroup" class="hidden">
+                        <div class="miniForm">
+                            <div>
+                                <label>Cantidad de Delegados</label>
+                                <br>
+                                <input class="numberSelector" id="adhocNumber" name="Cantidad para AD-HOC" type="number" value="1" min="1">
+                            </div>
+                            <div>
+                                <label>Delegados para AD-HOC<br><b>Mixto</b></label>
+                                <textarea rows="1" id="delegatesForadhoc" name="Delegados para AD-HOC"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Cargos Disponibles</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <div class="dropdownFormTitle">
+                        <div class="placeholder"></div>
+                        <p class="dropdownText">PARLAMENTO</p>
+                        <button id="parlamentoDropdownButton" type="button" class="dropdownButton"></button>
+                    </div>
+                    <div id="parlamentoGroup" class="hidden">
+                        <div class="miniForm">
+                            <div>
+                                <label>Cantidad de Delegados</label>
+                                <br>
+                                <input class="numberSelector" id="parlamentoNumber" name="Cantidad para Parlamento" type="number" value="1" min="1">
+                            </div>
+                            <div>
+                                <label>Delegados para Parlamento<br><b>Mixto</b></label>
+                                <textarea rows="1" id="delegatesForparlamento" name="Delegados para Parlamento"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Cargos Disponibles</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <div class="dropdownFormTitle">
+                        <div class="placeholder"></div>
+                        <p class="dropdownText">AMS</p>
+                        <button id="amsDropdownButton" type="button" class="dropdownButton"></button>
+                    </div>
+                    <div id="amsGroup" class="hidden">
+                        <div class="miniForm">
+                            <div>
+                                <label>Cantidad de Delegados</label>
+                                <br>
+                                <input class="numberSelector" id="amsNumber" name="Cantidad para AMS" type="number" value="1" min="1">
+                            </div>
+                            <div>
+                                <label>Delegados para AMS<br><b>Mixto</b></label>
+                                <textarea rows="1" id="delegatesForams" name="Delegados para AMS"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Cargos Disponibles</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <div class="dropdownFormTitle">
+                        <div class="placeholder"></div>
+                        <p class="dropdownText">UNESCO</p>
+                        <button id="unescoDropdownButton" type="button" class="dropdownButton"></button>
+                    </div>
+                    <div id="unescoGroup" class="hidden">
+                        <div class="miniForm">
+                            <div>
+                                <label>Cantidad de Delegados</label>
+                                <br>
+                                <input class="numberSelector" id="unescoNumber" name="Cantidad para UNESCO" type="number" value="1" min="1">
+                            </div>
+                            <div>
+                                <label>Delegados para UNESCO<br><b>Mixto</b></label>
+                                <textarea rows="1" id="delegatesForunesco" name="Delegados para UNESCO"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Cargos Disponibles</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <div class="dropdownFormTitle">
+                        <div class="placeholder"></div>
+                        <p class="dropdownText">Observadores</p>
+                        <button id="observadoresDropdownButton" type="button" class="dropdownButton"></button>
+                    </div>
+                    <div id="observadoresGroup" class="hidden">
+                        <div class="miniForm">
+                            <div>
+                                <label>Nombres de los Observadores</label> <br>
+                                <input class="numberSelector" id="observadoresNumber" name="Cantidad de Observadores" type="number" value="1" min="1">
+                            </div>
+                            <div>
+                                <label>Nombres de Observadores<br></label> <textarea rows="1" id="delegatesForobservadores" name="Nombres de Observadores"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Cargos Disponibles</h2>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
                 <input class="blueButton" type="submit" value="Submit" name="submitButton" id="submitButton" style="font-size: 120%;">
                 <br><br>
             </form>
         </div>
+    </main>
         <script src="scripts.js"></script>
         <script src="inscriptionScript.js"></script> 
     </body>
