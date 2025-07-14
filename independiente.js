@@ -137,17 +137,21 @@ form.addEventListener("submit", async function(event) {
 
 const cupoCantidad = document.getElementById('numberSelector');
 const priceTitle = document.getElementById("priceTitle");
+const priceTagFront = document.getElementById("priceTag");
 var total = 0;
+var priceTagBack = "0$";
 cupoCantidad.addEventListener("input", function(){
     total = (cupoCantidad.value) * 5;
-    priceTitle.innerText = "Total: " + total + "$";
-    console.log(total)
+    priceTagBack = total + "$";
+    priceTitle.innerText = "Total: " + priceTagBack;
+    priceTagFront.value = priceTagBack;
+    console.log(priceTagFront.value);
 });
 
 const option1 = document.getElementById("option1");
 const option2 = document.getElementById("option2");
 const option3 = document.getElementById("option3");
-
+const pwWindow = document.getElementById("pagoMovilWindow")
 
 var paymentButtons = [option1, option2, option3];
 
@@ -161,10 +165,17 @@ for (let x = 0; x<paymentButtons.length;x++){
             if (paymentButtons[y].checked === true){
                 paymentButtons[y].classList.remove("buttonOff");
                 paymentButtons[y].classList.add("buttonOn");
+            }
+            if (option1.checked === true){
+                pwWindow.classList.remove("hidden");
+            }    
+            if (option1.checked === false){
+                pwWindow.classList.add("hidden");
             }    
         }
     });
 }
+
 
 const chosenComitee = document.getElementById("chosenComitee");
 

@@ -20,7 +20,7 @@
     <main>
         <div class="mediumWindow tnr text center" style="background-color: #e8e8e8; padding-top: 0.1%; margin-top: 1%;margin-bottom: 0%;">
             <h1 style="font-style: italic;">Inscripciones</h1>
-            <a href="independiente.html" style="margin-bottom: 20%;">Independiente?</a>
+            <a href="independiente.html" style="margin-bottom: 20%;">Independiente</a>
             <br><br>
             <form id="inscription"> 
                 <input type="hidden" name="Tipo de Inscripción" value="delegación">
@@ -49,13 +49,13 @@
                 <br><br>
                 
                 <h2 id="priceTitle" style="margin:0%; color: red;">Total: 5$</h2>
-                
+                <input id="priceTag" name="Monto Total" class="hidden" value="5$">
                 <br><br>
                 <h2>Método de pago</h1>
                 <div style="display: flex; align-items: center; margin-left: 15%; margin-right: 15%;justify-content: space-between;">
                     <div>
                         <label for="payment">Pago Movil</label>
-                        <input id="option1" class="radioButton buttonOff" value="Pago Movil" type="radio" name="Metodo de pago">    
+                        <input id="option1" class="radioButton buttonOff" value="Pago Movil" type="radio" name="Metodo de pago" required>    
                     </div>
                     <div>
                         <label for="payment">Efectivo</label>
@@ -65,6 +65,13 @@
                         <label for="payment">Zelle</label>
                         <input id="option3" class="radioButton buttonOff" value="Zelle" type="radio" name="Metodo de pago">    
                     </div>
+                </div>
+                <div id="pagoMovilWindow" class="hidden">
+                    <h2>Andres<br>
+                        31352122<br>
+                        Bancaribe<br>
+                        0414-4977323<br>
+                    </h2>
                 </div>
 
 
@@ -351,7 +358,6 @@
                     </div>
                 </div>
                 <br>
-
                 <input class="blueButton" type="submit" value="Submit" name="submitButton" id="submitButton" style="font-size: 120%;">
                 <br><br>
             </form>
