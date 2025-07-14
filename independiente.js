@@ -70,11 +70,7 @@ const observadoresNames = document.getElementById("delegatesForobservadores");
 var observadoresNamesRowMax = 1;
 
 
-function allMiniForm(button, group, number, rowMax, names){
-    button.addEventListener("click", function(){
-        group.classList.toggle("hidden");
-    });
-    
+function allMiniForm(number, rowMax, names){
     number.addEventListener("input", function(){
         names.rows = number.value;
         rowMax = number.value;
@@ -92,16 +88,16 @@ function allMiniForm(button, group, number, rowMax, names){
 }
 
 
-allMiniForm(crisisButton, crisisGroup, crisisNumber, crisisNamesRowMax, crisisNames);
-allMiniForm(CSButton, CSGroup, CSNumber, CSNamesRowMax, CSNames);
-allMiniForm(ACNURButton, ACNURGroup, ACNURNumber, ACNURNamesRowMax, ACNURNames);
-allMiniForm(corteButton, corteGroup, corteNumber, corteNamesRowMax, corteNames);
-allMiniForm(prensaButton, prensaGroup, prensaNumber, prensaNamesRowMax, prensaNames);
-allMiniForm(adhocButton, adhocGroup, adhocNumber, adhocNamesRowMax, adhocNames);
-allMiniForm(parlamentoButton, parlamentoGroup, parlamentoNumber, parlamentoNamesRowMax, parlamentoNames);
-allMiniForm(amsButton, amsGroup, amsNumber, amsNamesRowMax, amsNames);
-allMiniForm(unescoButton, unescoGroup, unescoNumber, unescoNamesRowMax, unescoNames);
-allMiniForm(observadoresButton, observadoresGroup, observadoresNumber, observadoresNamesRowMax, observadoresNames);
+allMiniForm(crisisNumber, crisisNamesRowMax, crisisNames);
+allMiniForm(CSNumber, CSNamesRowMax, CSNames);
+allMiniForm(ACNURNumber, ACNURNamesRowMax, ACNURNames);
+allMiniForm(corteNumber, corteNamesRowMax, corteNames);
+allMiniForm(prensaNumber, prensaNamesRowMax, prensaNames);
+allMiniForm(adhocNumber, adhocNamesRowMax, adhocNames);
+allMiniForm(parlamentoNumber, parlamentoNamesRowMax, parlamentoNames);
+allMiniForm(amsNumber, amsNamesRowMax, amsNames);
+allMiniForm(unescoNumber, unescoNamesRowMax, unescoNames);
+allMiniForm(observadoresNumber, observadoresNamesRowMax, observadoresNames);
 
 
 form.addEventListener("submit", async function(event) {
@@ -169,3 +165,55 @@ for (let x = 0; x<paymentButtons.length;x++){
         }
     });
 }
+
+const chosenComitee = document.getElementById("chosenComitee");
+
+var groups=[crisisGroup,
+            CSGroup,
+            ACNURGroup,
+            corteGroup,
+            prensaGroup,
+            adhocGroup,
+            parlamentoGroup,
+            amsGroup,
+            unescoGroup,
+            observadoresGroup];
+
+var names = [crisisNames,
+        CSNames,
+        ACNURNames,
+        corteNames,
+        prensaNames,
+        adhocNames,
+        parlamentoNames,
+        amsNames,
+        unescoNames,
+        observadoresNames];
+
+function allat(group, value){
+    chosenComitee.addEventListener("input", function(){
+        if (chosenComitee.value == value){
+            for (let x = 0; x<groups.length;x++){
+                groups[x].classList.add("hidden");
+                names[x].value = "";
+            }
+            group.classList.remove("hidden");
+        }
+        if (chosenComitee.value == "none"){
+            for (let x = 0; x<groups.length;x++){
+                groups[x].classList.add("hidden");
+            }
+        }
+    });
+}
+
+allat(crisisGroup, "crisis", crisisNames);
+allat(CSGroup, "cs", CSNames);
+allat(ACNURGroup, "acnur", ACNURNames);
+allat(corteGroup, "corte", corteNames);
+allat(prensaGroup, "prensa", prensaNames);
+allat(adhocGroup, "adhoc", adhocNames);
+allat(parlamentoGroup, "parlamento", parlamentoNames);
+allat(amsGroup, "ams", amsNames);
+allat(unescoGroup,"unesco", unescoNames);
+allat(observadoresGroup, "observador", observadoresNames);
