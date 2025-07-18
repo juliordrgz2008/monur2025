@@ -4,6 +4,7 @@
     display: none;
 }
 
+
 .litButton{
     background-color: #060668;
     transition-duration: 0.4s;
@@ -13,7 +14,13 @@
     background-color: #01012b;
 }
 
-
+.delegateButton{
+    width: 2rem;
+    height: 2rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #01012b;
+}
 
 .topButton{
     transition-duration: 0.4s;
@@ -107,6 +114,7 @@
     font-size: 100%;
     text-align: center;
     border-radius: 20px;
+    border-style: none;
 }
 
 .tnr{
@@ -190,6 +198,18 @@ label{
     font-size: 120%;
 }
 
+input[type="text"]{
+    display: block;
+    resize: none;
+    border-style: solid;
+    margin: 0 auto;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    text-align: center;
+    font-size: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 textarea{
     display: block;
     resize: none;
@@ -200,6 +220,5 @@ textarea{
     text-align: center;
     font-size: 100%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 

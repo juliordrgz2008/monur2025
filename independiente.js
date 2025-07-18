@@ -218,6 +218,8 @@ function allat(group, value){
     });
 }
 
+
+
 allat(crisisGroup, "crisis", crisisNames);
 allat(CSGroup, "cs", CSNames);
 allat(ACNURGroup, "acnur", ACNURNames);

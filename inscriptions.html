@@ -1,369 +1,379 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body style="background-color: white;">
-        <div class="center divBanner" style="background-color: #01012b;">
-            <ul style="margin: 0;">
-                <button class="topButton topButtonOff" id="homeButton">Home</button>
-                <button class="topButton topButtonOff" id="inscButton">Inscriptions</button>
-            </ul>
-        </div>
-        <div class="center divBanner" style="background-color: #01013F; padding-bottom: 1.5%;">
-            <img src="logo.jpg" width="40%">
-            <div style="display: flex; align-items: center; justify-content: center;">
-                <img src="logoInstagram.png" width="1%" style="margin-right: 8px;">
-                <a class="tnr" style="font-size: 120%; display: inline; color: white;" target="_blank" href="https://www.instagram.com">Instagram</a>    
-            </div>
-        </div>
-    <main>
-        <div class="mediumWindow tnr text center" style="background-color: #e8e8e8; padding-top: 0.1%; margin-top: 1%;margin-bottom: 0%;">
-            <h1 style="font-style: italic;">Inscripciones</h1>
-            <a href="independiente.html" style="margin-bottom: 20%;">Independiente</a>
+   <head>
+      <link rel="stylesheet" href="styles.css">
+      <link rel="icon" type="image/x-icon" href="monur.ico">
+   </head>
+   <body style="background-color: white;">
+      <div class="center divBanner" style="background-color: #01012b;">
+         <ul style="margin: 0;">
+            <button class="topButton topButtonOff" id="homeButton">Home</button>
+            <button class="topButton topButtonOff" id="inscButton">Inscriptions</button>
+         </ul>
+      </div>
+      <div class="center divBanner" style="background-color: #01013F; padding-bottom: 1.5%;">
+         <img src="logo.jpg" width="40%">
+         <div style="display: flex; align-items: center; justify-content: center;">
+            <img src="logoInstagram.png" width="1%" style="margin-right: 8px;">
+            <a class="tnr" style="font-size: 120%; display: inline; color: white;" target="_blank" href="https://www.instagram.com">Instagram</a>    
+         </div>
+      </div>
+      <main>
+         <div class="mediumWindow tnr text center" style="background-color: #e8e8e8; padding-top: 0.1%; margin-top: 1%;margin-bottom: 0%;">
+         <h1 style="margin-top:5%;font-style: italic;">Inscripciones</h1>
+         <a href="independiente.html" style="margin-bottom: 20%;">Independiente</a>
+         <br><br>
+         <form id="inscription">
+            <input type="hidden" name="Tipo de Inscripción" value="delegación">
+            <label for="email">Correo electrónico</label>
+            <textarea id="email" name="email" cols="50" rows="3" required></textarea>
             <br><br>
-            <form id="inscription"> 
-                <input type="hidden" name="Tipo de Inscripción" value="delegación">
-                <label for="email">Correo electrónico</label>
-                <textarea id="email" name="email" cols="50" rows="3" required></textarea>
-                
-                <br><br>
-                
-                <label for="dname">Nombre de la delegación</label>
-                <textarea id="dname" name="Delegacion" cols="50" rows="3" required></textarea>
-                
-                <br><br>
-                
-                <label for="fname">Nombre de los Faculties</label>
-                <textarea id="fname" name="Faculties" cols="50" rows="3" required></textarea>
-                
-                <br><br>
-                
-                <label for="fcontact">Número de contacto de los Faculties</label>
-                <textarea id="fcontact" name="Contacto" cols="50" rows="3" required></textarea>
-                <br><br>
+            <label for="dname">Nombre de la delegación</label>
+            <textarea id="dname" name="Delegacion" cols="50" rows="3" required></textarea>
+            <br><br>
+            <label for="fname">Nombre de los Faculties</label>
+            <textarea id="fname" name="Faculties" cols="50" rows="3" required></textarea>
+            <br><br>
+            <label for="fcontact">Número de contacto de los Faculties</label>
+            <textarea id="fcontact" name="Contacto" cols="50" rows="3" required></textarea>
+            <br><br>
+            <h2 style="font-size: 200%; margin-bottom: 0;">Comités</h2>
+            <p style="font-size: 120%;margin-top:0;margin-bottom: 5%;">Porfavor separar los nombres con una linea nueva</p>
+            <div>
+               <div class="dropdownFormTitle">
+                  <div class="placeholder"></div>
+                  <p class="dropdownText">CRISIS</p>
+                  <button id="crisisDropdownButton" type="button" class="dropdownButton"></button>
+               </div>
+               <div id="crisisGroup" class="">
+                  <div>
+                     <h2>Mixto Individual</h2>
+                  </div>
+                  <div class="miniForm" id="miniFormcrisis">
+                     <div>
+                        <label>Cantidad de Delegados</label>
+                        <br>
+                        <h2 id="crisisDelegateNumberOutput">0</h2>
+                        <div style="display: flex; justify-content:space-evenly;">
+                           <button type="button" id="crisisMore" class="delegateButton">+</button>
+                           <button type="button" id="crisisLess" class="delegateButton">-</button>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <textarea class="hidden" readonly id="groupedcrisisData" name="Delegados para crisis"></textarea>
+                  <!-- Something is added here! -->
+                  <div id="crisisCargos">
+                     <h2>Cargos Disponibles</h2>
+                  </div>
+               </div>
+            </div>
+            <br>
+            <div>
+               <div class="dropdownFormTitle">
+                  <div class="placeholder"></div>
+                  <p class="dropdownText">CONSEJO DE SEGURIDAD</p>
+                  <button id="csDropdownButton" type="button" class="dropdownButton"></button>
+               </div>
+               <div id="csGroup" class="">
+                  <div>
+                     <h2>Mixto Individual</h2>
+                  </div>
+                  <div class="miniForm" id="miniFormcs">
+                     <div>
+                        <label>Cantidad de Delegados</label>
+                        <br>
+                        <h2 id="csDelegateNumberOutput">0</h2>
+                        <div style="display: flex; justify-content:space-evenly;">
+                           <button type="button" id="csMore" class="delegateButton">+</button>
+                           <button type="button" id="csLess" class="delegateButton">-</button>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <textarea class="hidden" readonly id="groupedcsData" name="Delegados para cs"></textarea>
+                  <!-- Something is added here! -->
+                  <div id="csCargos">
+                     <h2>Cargos Disponibles</h2>
+                  </div>
+               </div>
+            </div>
+            <br>
+            <div>
+               <div class="dropdownFormTitle">
+                  <div class="placeholder"></div>
+                  <p class="dropdownText">ACNUR</p>
+                  <button id="ACNURDropdownButton" type="button" class="dropdownButton"></button>
+               </div>
+               <div id="ACNURGroup" class="">
+                  <div>
+                     <h2>Mixto Individual</h2>
+                  </div>
+                  <div class="miniForm" id="miniFormACNUR">
+                     <div>
+                        <label>Cantidad de Delegados</label>
+                        <br>
+                        <h2 id="ACNURDelegateNumberOutput">0</h2>
+                        <div style="display: flex; justify-content:space-evenly;">
+                           <button type="button" id="ACNURMore" class="delegateButton">+</button>
+                           <button type="button" id="ACNURLess" class="delegateButton">-</button>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <textarea class="hidden" readonly id="groupedACNURData" name="Delegados para ACNUR"></textarea>
+                  <!-- Something is added here! -->
+                  <div id="ACNURCargos">
+                     <h2>Cargos Disponibles</h2>
+                  </div>
+               </div>
+            </div>
+            <br>
+            <div>
+               <div class="dropdownFormTitle">
+                  <div class="placeholder"></div>
+                  <p class="dropdownText">corte</p>
+                  <button id="corteDropdownButton" type="button" class="dropdownButton"></button>
+               </div>
+               <div id="corteGroup" class="">
+                  <div>
+                     <h2>Mixto Individual</h2>
+                  </div>
+                  <div class="miniForm" id="miniFormcorte">
+                     <div>
+                        <label>Cantidad de Delegados</label>
+                        <br>
+                        <h2 id="corteDelegateNumberOutput">0</h2>
+                        <div style="display: flex; justify-content:space-evenly;">
+                           <button type="button" id="corteMore" class="delegateButton">+</button>
+                           <button type="button" id="corteLess" class="delegateButton">-</button>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <textarea class="hidden" readonly id="groupedcorteData" name="Delegados para corte"></textarea>
+                  <!-- Something is added here! -->
+                  <div id="corteCargos">
+                     <h2>Cargos Disponibles</h2>
+                  </div>
+               </div>
+            </div>
+            <br>
+            <div>
+               <div class="dropdownFormTitle">
+                  <div class="placeholder"></div>
+                  <p class="dropdownText">PRENSA</p>
+                  <button id="prensaDropdownButton" type="button" class="dropdownButton"></button>
+               </div>
+               <div id="prensaGroup" class="">
+                  <div>
+                     <h2>Mixto Individual</h2>
+                  </div>
+                  <div class="miniForm" id="miniFormprensa">
+                     <div>
+                        <label>Cantidad de Delegados</label>
+                        <br>
+                        <h2 id="prensaDelegateNumberOutput">0</h2>
+                        <div style="display: flex; justify-content:space-evenly;">
+                           <button type="button" id="prensaMore" class="delegateButton">+</button>
+                           <button type="button" id="prensaLess" class="delegateButton">-</button>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <textarea class="hidden" readonly id="groupedprensaData" name="Delegados para prensa"></textarea>
+                  <!-- Something is added here! -->
+                  <div id="prensaCargos">
+                     <h2>Cargos Disponibles</h2>
+                  </div>
+               </div>
+            </div>
+            <br>
+            <div>
+               <div class="dropdownFormTitle">
+                  <div class="placeholder"></div>
+                  <p class="dropdownText">AD-HOC</p>
+                  <button id="adhocDropdownButton" type="button" class="dropdownButton"></button>
+               </div>
+               <div id="adhocGroup" class="">
+                  <div>
+                     <h2>Mixto Individual</h2>
+                  </div>
+                  <div class="miniForm" id="miniFormadhoc">
+                     <div>
+                        <label>Cantidad de Delegados</label>
+                        <br>
+                        <h2 id="adhocDelegateNumberOutput">0</h2>
+                        <div style="display: flex; justify-content:space-evenly;">
+                           <button type="button" id="adhocMore" class="delegateButton">+</button>
+                           <button type="button" id="adhocLess" class="delegateButton">-</button>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <textarea class="hidden" readonly id="groupedadhocData" name="Delegados para adhoc"></textarea>
+                  <!-- Something is added here! -->
+                  <div id="adhocCargos">
+                     <h2>Cargos Disponibles</h2>
+                  </div>
+               </div>
+            </div>
+            <br>
+            <div>
+               <div class="dropdownFormTitle">
+                  <div class="placeholder"></div>
+                  <p class="dropdownText">PARLAMENTO</p>
+                  <button id="parlamentoDropdownButton" type="button" class="dropdownButton"></button>
+               </div>
+               <div id="parlamentoGroup" class="">
+                  <div>
+                     <h2>Mixto Individual</h2>
+                  </div>
+                  <div class="miniForm" id="miniFormparlamento">
+                     <div>
+                        <label>Cantidad de Delegados</label>
+                        <br>
+                        <h2 id="parlamentoDelegateNumberOutput">0</h2>
+                        <div style="display: flex; justify-content:space-evenly;">
+                           <button type="button" id="parlamentoMore" class="delegateButton">+</button>
+                           <button type="button" id="parlamentoLess" class="delegateButton">-</button>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <textarea class="hidden" readonly id="groupedparlamentoData" name="Delegados para parlamento"></textarea>
+                  <!-- Something is added here! -->
+                  <div id="parlamentoCargos">
+                     <h2>Cargos Disponibles</h2>
+                  </div>
+               </div>
+            </div>
+            <br>
+            <div>
+               <div class="dropdownFormTitle">
+                  <div class="placeholder"></div>
+                  <p class="dropdownText">ams</p>
+                  <button id="amsDropdownButton" type="button" class="dropdownButton"></button>
+               </div>
+               <div id="amsGroup" class="">
+                  <div>
+                     <h2>Mixto Individual</h2>
+                  </div>
+                  <div class="miniForm" id="miniFormams">
+                     <div>
+                        <label>Cantidad de Delegados</label>
+                        <br>
+                        <h2 id="amsDelegateNumberOutput">0</h2>
+                        <div style="display: flex; justify-content:space-evenly;">
+                           <button type="button" id="amsMore" class="delegateButton">+</button>
+                           <button type="button" id="amsLess" class="delegateButton">-</button>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <textarea class="hidden" readonly id="groupedamsData" name="Delegados para ams"></textarea>
+                  <!-- Something is added here! -->
+                  <div id="amsCargos">
+                     <h2>Cargos Disponibles</h2>
+                  </div>
+               </div>
+               <br>
+               <div>
+                  <div class="dropdownFormTitle">
+                     <div class="placeholder"></div>
+                     <p class="dropdownText">unesco</p>
+                     <button id="unescoDropdownButton" type="button" class="dropdownButton"></button>
+                  </div>
+                  <div id="unescoGroup" class="">
+                     <div>
+                        <h2>Mixto Individual</h2>
+                     </div>
+                     <div class="miniForm" id="miniFormunesco">
+                        <div>
+                           <label>Cantidad de Delegados</label>
+                           <br>
+                           <h2 id="unescoDelegateNumberOutput">0</h2>
+                           <div style="display: flex; justify-content:space-evenly;">
+                              <button type="button" id="unescoMore" class="delegateButton">+</button>
+                              <button type="button" id="unescoLess" class="delegateButton">-</button>
+                           </div>
+                        </div>
+                     </div>
+                     <br>
+                     <textarea class="hidden" readonly id="groupedunescoData" name="Delegados para unesco"></textarea>
+                     <!-- Something is added here! -->
+                     <div id="unescoCargos">
+                        <h2>Cargos Disponibles</h2>
+                     </div>
+                  </div>
+               </div>
+               <br>
+               <div>
+                  <div class="dropdownFormTitle">
+                     <div class="placeholder"></div>
+                     <p class="dropdownText">observadores</p>
+                     <button id="observadoresDropdownButton" type="button" class="dropdownButton"></button>
+                  </div>
+                  <div id="observadoresGroup" class="">
+                     <div>
+                        <h2>Mixto Individual</h2>
+                     </div>
+                     <div class="miniForm" id="miniFormobservadores">
+                        <div>
+                           <label>Cantidad de Delegados</label>
+                           <br>
+                           <h2 id="observadoresDelegateNumberOutput">0</h2>
+                           <div style="display: flex; justify-content:space-evenly;">
+                              <button type="button" id="observadoresMore" class="delegateButton">+</button>
+                              <button type="button" id="observadoresLess" class="delegateButton">-</button>
+                           </div>
+                        </div>
+                     </div>
+                     <br>
+                     <textarea class="hidden" readonly id="groupedobservadoresData" name="Nombres de observadores"></textarea>
+                     <!-- Something is added here! -->
+                     <div id="observadoresCargos">
+                     </div>
 
-
-                <label>Cantidad de cupos</label><br>
-                <input id="numberSelector" class="numberSelector" name="Cantidad de Cupos en Total" type="number" value="1" min="1">
-                <br><br>
-                
-                <h2 id="priceTitle" style="margin:0%; color: red;">Total: 5$</h2>
-                <input id="priceTag" name="Monto Total" class="hidden" value="5$">
-                <br><br>
-                <h2>Método de pago</h1>
-                <div style="display: flex; align-items: center; margin-left: 15%; margin-right: 15%;justify-content: space-between;">
-                    <div>
-                        <label for="payment">Pago Movil</label>
-                        <input id="option1" class="radioButton buttonOff" value="Pago Movil" type="radio" name="Metodo de pago" required>    
-                    </div>
-                    <div>
-                        <label for="payment">Efectivo</label>
-                        <input id="option2" class="radioButton buttonOff" value="Efectivo" type="radio" name="Metodo de pago">    
-                    </div>
-                    <div>
-                        <label for="payment">Zelle</label>
-                        <input id="option3" class="radioButton buttonOff" value="Zelle" type="radio" name="Metodo de pago">    
-                    </div>
-                </div>
-                <div id="pagoMovilWindow" class="hidden">
-                    <h2>Andres<br>
-                        31352122<br>
-                        Bancaribe<br>
-                        0414-4977323<br>
-                    </h2>
-                </div>
-
-
-                <h2 style="font-size: 200%; margin-bottom: 0;">Comités</h2>
-                <p style="font-size: 120%;margin-top:0;margin-bottom: 5%;">Porfavor separar los nombres con una linea nueva</p>
-
-                <div>
-                    <div class="dropdownFormTitle">
-                        <div class="placeholder"></div>
-                        <p class="dropdownText">CRISIS</p>
-                        <button id="crisisDropdownButton" type="button" class="dropdownButton"></button>
-                    </div>
-                    <div id="crisisGroup" class="hidden">
-                        <div>
-                            <h2>Mixto Individual</h2>
-                        </div>
-                        <div class="miniForm">
-                            <div>
-                                <label>Cantidad de Delegados</label>
-                                <br>
-                                <input class="numberSelector" id="crisisNumber" name="Cantidad para Crisis" type="number" value="1" min="1">
-                            </div>
-                            <div>
-                                <label>Delegados para Crisis<br></label>
-                                <textarea rows="1" id="delegatesForCrisis" name="Delegados para Crisis"></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <h2>Cargos Disponibles</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                <br>
-                
-                <div>
-                    <div class="dropdownFormTitle">
-                        <div class="placeholder"></div>
-                        <p class="dropdownText">CONSEJO DE SEGURIDAD</p>
-                        <button id="CSDropdownButton" type="button" class="dropdownButton"></button>
-                    </div>
-                    <div id="CSGroup" class="hidden">
-                        <div>
-                            <h2>Mixto Individual</h2>
-                        </div>
-                        <div class="miniForm">
-                            <div>
-                                <label>Cantidad de Delegados</label>
-                                <br>
-                                <input class="numberSelector" id="CSNumber" name="Cantidad para CS" type="number" value="1" min="1">
-                            </div>
-                            <div>
-                                <label>Delegados para Consejo de Seguridad<br></label>
-                                <textarea rows="1" id="delegatesForCS" name="Delegados para CS"></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <h2>Cargos Disponibles</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                <br>
-                
-                <div>
-                    <div class="dropdownFormTitle">
-                        <div class="placeholder"></div>
-                        <p class="dropdownText">ACNUR</p>
-                        <button id="ACNURDropdownButton" type="button" class="dropdownButton"></button>
-                    </div>
-                    <div id="ACNURGroup" class="hidden">
-                        <div>
-                            <h2>Básica Agencia</h2>
-                        </div>
-                        <div class="miniForm">
-                            <div>
-                                <label>Cantidad de Delegados</label>
-                                <br>
-                                <input class="numberSelector" id="ACNURNumber" name="Cantidad para ACNUR" type="number" value="1" min="1">
-                            </div>
-                            <div>
-                                <label>Delegados para ACNUR<br></label>
-                                <textarea rows="1" id="delegatesForACNUR" name="Delegados para ACNUR"></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <h2>Cargos Disponibles</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                <br>
-                
-                <div>
-                    <div class="dropdownFormTitle">
-                        <div class="placeholder"></div>
-                        <p class="dropdownText">CORTE</p>
-                        <button id="corteDropdownButton" type="button" class="dropdownButton"></button>
-                    </div>
-                    <div id="corteGroup" class="hidden">
-                        <div>
-                            <h2>Diversificado Individual</h2>
-                        </div>
-                        <div class="miniForm">
-                            <div>
-                                <label>Cantidad de Delegados</label>
-                                <br>
-                                <input class="numberSelector" id="corteNumber" name="Cantidad para Corte" type="number" value="1" min="1">
-                            </div>
-                            <div>
-                                <label>Delegados para Corte<br></label>
-                                <textarea rows="1" id="delegatesForcorte" name="Delegados para Corte"></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <h2>Cargos Disponibles</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                <br>
-                
-                <div>
-                    <div class="dropdownFormTitle">
-                        <div class="placeholder"></div>
-                        <p class="dropdownText">PRENSA</p>
-                        <button id="prensaDropdownButton" type="button" class="dropdownButton"></button>
-                    </div>
-                    <div id="prensaGroup" class="hidden">
-                        <div>
-                            <h2>Mixto Individual</h2>
-                        </div>
-                        <div class="miniForm">
-                            <div>
-                                <label>Cantidad de Delegados</label>
-                                <br>
-                                <input class="numberSelector" id="prensaNumber" name="Cantidad para Prensa" type="number" value="1" min="1">
-                            </div>
-                            <div>
-                                <label>Delegados para Prensa<br></label>
-                                <textarea rows="1" id="delegatesForprensa" name="Delegados para Prensa"></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <h2>Cargos Disponibles</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                <br>
-                
-                <div>
-                    <div class="dropdownFormTitle">
-                        <div class="placeholder"></div>
-                        <p class="dropdownText">AD-HOC</p>
-                        <button id="adhocDropdownButton" type="button" class="dropdownButton"></button>
-                    </div>
-                    <div id="adhocGroup" class="hidden">
-                        <div>
-                            <h2>Diversificado Individual</h2>
-                        </div>
-                        <div class="miniForm">
-                            <div>
-                                <label>Cantidad de Delegados</label>
-                                <br>
-                                <input class="numberSelector" id="adhocNumber" name="Cantidad para AD-HOC" type="number" value="1" min="1">
-                            </div>
-                            <div>
-                                <label>Delegados para AD-HOC<br></label>
-                                <textarea rows="1" id="delegatesForadhoc" name="Delegados para AD-HOC"></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <h2>Cargos Disponibles</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                <br>
-                
-                <div>
-                    <div class="dropdownFormTitle">
-                        <div class="placeholder"></div>
-                        <p class="dropdownText">PARLAMENTO</p>
-                        <button id="parlamentoDropdownButton" type="button" class="dropdownButton"></button>
-                    </div>
-                    <div id="parlamentoGroup" class="hidden">
-                        <div>
-                            <h2>Diversificado Individual</h2>
-                        </div>
-                        <div class="miniForm">
-                            <div>
-                                <label>Cantidad de Delegados</label>
-                                <br>
-                                <input class="numberSelector" id="parlamentoNumber" name="Cantidad para Parlamento" type="number" value="1" min="1">
-                            </div>
-                            <div>
-                                <label>Delegados para Parlamento<br></label>
-                                <textarea rows="1" id="delegatesForparlamento" name="Delegados para Parlamento"></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <h2>Cargos Disponibles</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                <br>
-                
-                <div>
-                    <div class="dropdownFormTitle">
-                        <div class="placeholder"></div>
-                        <p class="dropdownText">AMS</p>
-                        <button id="amsDropdownButton" type="button" class="dropdownButton"></button>
-                    </div>
-                    <div id="amsGroup" class="hidden">
-                        <div>
-                            <h2>Mixto Individual</h2>
-                        </div>
-                        <div class="miniForm">
-                            <div>
-                                <label>Cantidad de Delegados</label>
-                                <br>
-                                <input class="numberSelector" id="amsNumber" name="Cantidad para AMS" type="number" value="1" min="1">
-                            </div>
-                            <div>
-                                <label>Delegados para AMS<br></label>
-                                <textarea rows="1" id="delegatesForams" name="Delegados para AMS"></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <h2>Cargos Disponibles</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                <br>
-                
-                <div>
-                    <div class="dropdownFormTitle">
-                        <div class="placeholder"></div>
-                        <p class="dropdownText">UNESCO</p>
-                        <button id="unescoDropdownButton" type="button" class="dropdownButton"></button>
-                    </div>
-                    <div id="unescoGroup" class="hidden">
-                        <div>
-                            <h2>Básica Agencia</h2>
-                        </div>
-                        <div class="miniForm">
-                            <div>
-                                <label>Cantidad de Delegados</label>
-                                <br>
-                                <input class="numberSelector" id="unescoNumber" name="Cantidad para UNESCO" type="number" value="1" min="1">
-                            </div>
-                            <div>
-                                <label>Delegados para UNESCO<br></label>
-                                <textarea rows="1" id="delegatesForunesco" name="Delegados para UNESCO"></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <h2>Cargos Disponibles</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                <br>
-                
-                <div>
-                    <div class="dropdownFormTitle">
-                        <div class="placeholder"></div>
-                        <p class="dropdownText">Observadores</p>
-                        <button id="observadoresDropdownButton" type="button" class="dropdownButton"></button>
-                    </div>
-                    <div id="observadoresGroup" class="hidden">
-                        <div class="miniForm">
-                            <div>
-                                <label>Cantidad de Observadores</label> <br>
-                                <input class="numberSelector" id="observadoresNumber" name="Cantidad de Observadores" type="number" value="1" min="1">
-                            </div>
-                            <div>
-                                <label>Nombres de Observadores<br></label> <textarea rows="1" id="delegatesForobservadores" name="Nombres de Observadores"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <input class="blueButton" type="submit" value="Submit" name="submitButton" id="submitButton" style="font-size: 120%;">
-                <br><br>
-            </form>
-        </div>
-    </main>
-        <script src="scripts.js"></script>
-        <script src="inscriptionScript.js"></script> 
-    </body>
+                  </div>
+               </div>
+               <br>
+               <label>Cantidad de cupos</label><br>
+               <input id="cantidadCuposOutput" class="numberSelector" name="Cantidad de Cupos en Total" type="text" value="0" readonly>
+               <br><br>
+               <h2 id="totalOutput" style="margin:0%; color: red;">Total: 0$</h2>
+               <input id="priceSentToSheet" name="Monto Total" class="hidden" value="0$">
+               <br><br>
+               <h2>
+               Método de pago</h1>
+               <div style="display: flex; align-items: center; margin-left: 15%; margin-right: 15%;justify-content: space-between;">
+                  <div>
+                     <label for="payment">Pago Movil</label>
+                     <input id="option1" class="radioButton buttonOff" value="Pago Movil" type="radio" name="Metodo de pago" required>    
+                  </div>
+                  <div>
+                     <label for="payment">Efectivo</label>
+                     <input id="option2" class="radioButton buttonOff" value="Efectivo" type="radio" name="Metodo de pago">    
+                  </div>
+                  <div>
+                     <label for="payment">Zelle</label>
+                     <input id="option3" class="radioButton buttonOff" value="Zelle" type="radio" name="Metodo de pago">    
+                  </div>
+               </div>
+               <div id="pagoMovilWindow" class="hidden">
+                  <h2>Andres<br>
+                     31352122<br>
+                     Bancaribe<br>
+                     0414-4977323<br>
+                  </h2>
+               </div>
+               <br><br>
+               <input class="blueButton" type="submit" value="Submit" name="submitButton" id="submitButton" style="font-size: 120%;">
+               <br><br>
+         </form>
+         </div>
+      </main>
+      <script src="scripts.js"></script>
+      <script src="inscriptionScript.js"></script>
+   </body>
 </html>

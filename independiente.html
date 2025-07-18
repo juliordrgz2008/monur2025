@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/x-icon" href="monur.ico">
     </head>
     <body style="background-color: white;">
         <div class="center divBanner" style="background-color: #01012b;">
@@ -39,39 +40,6 @@
                 <label for="fcontact">Número de contacto</label>
                 <textarea id="fcontact" name="Contacto" cols="50" rows="3" required></textarea>
             
-
-                <label class="hidden">Cantidad de cupos</label><br>
-                <input class="hidden" value="" id="numberSelector" class="numberSelector" name="Cantidad de Cupos en Total" type="number" value="" >
-                <br><br>
-                
-                <h2 id="priceTitle" style="margin:0%; color: red;">Total: 5$</h2>
-                <input id="priceTag" name="Monto Total" class="hidden" value="5$">
-                <br><br>
-                <h2>Método de pago</h1>
-                <div style="display: flex; align-items: center; margin-left: 15%; margin-right: 15%;justify-content: space-between;">
-                    <div>
-                        <label for="payment">Pago Movil</label>
-                        <input id="option1" class="radioButton buttonOff" value="Pago Movil" type="radio" name="Metodo de pago" required>    
-                    </div>
-                    <div>
-                        <label for="payment">Efectivo</label>
-                        <input id="option2" class="radioButton buttonOff" value="Efectivo" type="radio" name="Metodo de pago">    
-                    </div>
-                    <div>
-                        <label for="payment">Zelle</label>
-                        <input id="option3" class="radioButton buttonOff" value="Zelle" type="radio" name="Metodo de pago">    
-                    </div>
-                </div>
-                <div id="pagoMovilWindow" class="hidden">
-                    <h2>Andres<br>
-                        31352122<br>
-                        Bancaribe<br>
-                        0414-4977323<br>
-                    </h2>
-                </div>
-
-
-
                 <h2 style="font-size: 200%">Comités</h2>
 
                 <label>¿A donde irá?</label>
@@ -93,8 +61,6 @@
                     </select>
                 </div>
                 
-                <br>
-
                 <div style="margin-top: 5%;">
                     <div id="crisisGroup" class="hidden">
                         <div>
@@ -133,8 +99,6 @@
                     </div>
                 </div>
                 
-                
-                
                 <div>
                     <div id="ACNURGroup" class="hidden">
                         <div>
@@ -153,7 +117,6 @@
                         </div>
                     </div>
                 </div>
-       
                 
                 <div>
                     <div id="corteGroup" class="hidden">
@@ -173,8 +136,6 @@
                         </div>
                     </div>
                 </div>
-                
-
                 
                 <div>
                     <div id="prensaGroup" class="hidden">
@@ -215,9 +176,7 @@
                         </div>
                     </div>
                 </div>
-                
-          
-                
+                    
                 <div>
                     <div id="parlamentoGroup" class="hidden">
                         <div>
@@ -236,9 +195,7 @@
                         </div>
                     </div>
                 </div>
-                
-         
-                
+                                
                 <div>
                     <div id="amsGroup" class="hidden">
                         <div>
@@ -257,9 +214,7 @@
                         </div>
                     </div>
                 </div>
-                
-    
-                
+                      
                 <div>
                     <div id="unescoGroup" class="hidden">
                         <div>
@@ -293,8 +248,37 @@
                     </div>
                 </div>
 
-                <input class="blueButton" type="submit" value="Submit" name="submitButton" id="submitButton" style="font-size: 120%;">
+
+                <label class="hidden">Cantidad de cupos</label><br>
+                <input class="hidden" value="" id="numberSelector" class="numberSelector" name="Cantidad de Cupos en Total" type="number" value="" >
+                
+                <h2 id="priceTitle" style="margin:0%; color: red;">Total: 5$</h2>
+                <input id="priceTag" name="Monto Total" class="hidden" value="5$">
                 <br><br>
+                <h2>Método de pago</h1>
+                <div style="display: flex; align-items: center; margin-left: 15%; margin-right: 15%;justify-content: space-between;">
+                    <div>
+                        <label for="payment">Pago Movil</label>
+                        <input id="option1" class="radioButton buttonOff" value="Pago Movil" type="radio" name="Metodo de pago" required>    
+                    </div>
+                    <div>
+                        <label for="payment">Efectivo</label>
+                        <input id="option2" class="radioButton buttonOff" value="Efectivo" type="radio" name="Metodo de pago">    
+                    </div>
+                    <div>
+                        <label for="payment">Zelle</label>
+                        <input id="option3" class="radioButton buttonOff" value="Zelle" type="radio" name="Metodo de pago">    
+                    </div>
+                </div>
+                <div id="pagoMovilWindow" class="hidden">
+                    <h2>Andres<br>
+                        31352122<br>
+                        Bancaribe<br>
+                        0414-4977323<br>
+                    </h2>
+                </div>
+                <br><br>
+                <input class="blueButton" type="submit" value="Submit" name="submitButton" id="submitButton" style="font-size: 120%;">
             </form>
         </div>
     </main>

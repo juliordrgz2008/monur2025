@@ -1,112 +1,167 @@
-
 const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyluVorZvojK1pgmYoIcjs1_yGo1e6kghtIqJaeS09UcqiISzkAH9YOnp2B-ZmrcJ_f/exec'; // *** IMPORTANT: Replace with your actual URL ***
 
 const form = document.getElementById("inscription");
 
-
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
     form.reset()
-}); 
+});
 
 
-const crisisButton = document.getElementById("crisisDropdownButton");
-const crisisGroup = document.getElementById("crisisGroup");
-const crisisNumber = document.getElementById("crisisNumber");
-const crisisNames = document.getElementById("delegatesForCrisis");
-var crisisNamesRowMax = 1;
-
-const CSButton = document.getElementById("CSDropdownButton");
-const CSGroup = document.getElementById("CSGroup");
-const CSNumber = document.getElementById("CSNumber");
-const CSNames = document.getElementById("delegatesForCS");
-var CSNamesRowMax = 1;
-
-const ACNURButton = document.getElementById("ACNURDropdownButton");
-const ACNURGroup = document.getElementById("ACNURGroup");
-const ACNURNumber = document.getElementById("ACNURNumber");
-const ACNURNames = document.getElementById("delegatesForACNUR");
-var ACNURNamesRowMax = 1;
-
-const corteButton = document.getElementById("corteDropdownButton");
-const corteGroup = document.getElementById("corteGroup");
-const corteNumber = document.getElementById("corteNumber");
-const corteNames = document.getElementById("delegatesForcorte");
-var corteNamesRowMax = 1;
-
-const prensaButton = document.getElementById("prensaDropdownButton");
-const prensaGroup = document.getElementById("prensaGroup");
-const prensaNumber = document.getElementById("prensaNumber");
-const prensaNames = document.getElementById("delegatesForprensa");
-var prensaNamesRowMax = 1;
-
-const adhocButton = document.getElementById("adhocDropdownButton");
-const adhocGroup = document.getElementById("adhocGroup");
-const adhocNumber = document.getElementById("adhocNumber");
-const adhocNames = document.getElementById("delegatesForadhoc");
-var adhocNamesRowMax = 1;
-
-const parlamentoButton = document.getElementById("parlamentoDropdownButton");
-const parlamentoGroup = document.getElementById("parlamentoGroup");
-const parlamentoNumber = document.getElementById("parlamentoNumber");
-const parlamentoNames = document.getElementById("delegatesForparlamento");
-var parlamentoNamesRowMax = 1;
-
-const amsButton = document.getElementById("amsDropdownButton");
-const amsGroup = document.getElementById("amsGroup");
-const amsNumber = document.getElementById("amsNumber");
-const amsNames = document.getElementById("delegatesForams");
-var amsNamesRowMax = 1;
-
-const unescoButton = document.getElementById("unescoDropdownButton");
-const unescoGroup = document.getElementById("unescoGroup");
-const unescoNumber = document.getElementById("unescoNumber");
-const unescoNames = document.getElementById("delegatesForunesco");
-var unescoNamesRowMax = 1;
-
-const observadoresButton = document.getElementById("observadoresDropdownButton");
-const observadoresGroup = document.getElementById("observadoresGroup");
-const observadoresNumber = document.getElementById("observadoresNumber");
-const observadoresNames = document.getElementById("delegatesForobservadores");
-var observadoresNamesRowMax = 1;
-
-
-function allMiniForm(button, group, number, rowMax, names){
-    button.addEventListener("click", function(){
-        group.classList.toggle("hidden");
-    });
-    
-    number.addEventListener("input", function(){
-        names.rows = number.value;
-        rowMax = number.value;
-    });
-    
-    names.addEventListener("keydown", function(){
-        if (event.key === 'Enter'){
-            const currentText = this.value;
-            const currentLines = currentText.split('\n').length;
-            if (currentLines >= rowMax){
-                event.preventDefault();
-            }
+const comites = {
+    crisis: {
+        prefix: "crisis",
+        delegateCount: 0,
+        delegateInputList: [],
+        elements: {
+            button: document.getElementById("crisisDropdownButton"),
+            group: document.getElementById("crisisGroup"),
+            output: document.getElementById("crisisDelegateNumberOutput"),
+            miniForm: document.getElementById("miniFormcrisis"),
+            cargos: document.getElementById("crisisCargos"),
+            groupedData: document.getElementById("groupedcrisisData"),
+            moreButton: document.getElementById("crisisMore"),
+            lessButton: document.getElementById("crisisLess")
         }
-    });
+    },
+    cs: {
+        prefix: "cs",
+        delegateCount: 0,
+        delegateInputList: [],
+        elements: {
+            button: document.getElementById("csDropdownButton"),
+            group: document.getElementById("csGroup"),
+            output: document.getElementById("csDelegateNumberOutput"),
+            miniForm: document.getElementById("miniFormcs"),
+            cargos: document.getElementById("csCargos"),
+            groupedData: document.getElementById("groupedcsData"),
+            moreButton: document.getElementById("csMore"),
+            lessButton: document.getElementById("csLess")
+        }
+    },
+    acnur: {
+        prefix: "crisis",
+        delegateCount: 0,
+        delegateInputList: [],
+        elements: {
+            button: document.getElementById("ACNURDropdownButton"),
+            group: document.getElementById("ACNURGroup"),
+            output: document.getElementById("ACNURDelegateNumberOutput"),
+            miniForm: document.getElementById("miniFormACNUR"),
+            cargos: document.getElementById("ACNURCargos"),
+            groupedData: document.getElementById("groupedACNURData"),
+            moreButton: document.getElementById("ACNURMore"),
+            lessButton: document.getElementById("ACNURLess")
+        }
+    },
+    corte: {
+        prefix: "corte",
+        delegateCount: 0,
+        delegateInputList: [],
+        elements: {
+            button: document.getElementById("corteDropdownButton"),
+            group: document.getElementById("corteGroup"),
+            output: document.getElementById("corteDelegateNumberOutput"),
+            miniForm: document.getElementById("miniFormcorte"),
+            cargos: document.getElementById("corteCargos"),
+            groupedData: document.getElementById("groupedcorteData"),
+            moreButton: document.getElementById("corteMore"),
+            lessButton: document.getElementById("corteLess")
+        }
+    },
+    prensa: {
+        prefix: "prensa",
+        delegateCount: 0,
+        delegateInputList: [],
+        elements: {
+            button: document.getElementById("prensaDropdownButton"),
+            group: document.getElementById("prensaGroup"),
+            output: document.getElementById("prensaDelegateNumberOutput"),
+            miniForm: document.getElementById("miniFormprensa"),
+            cargos: document.getElementById("prensaCargos"),
+            groupedData: document.getElementById("groupedprensaData"),
+            moreButton: document.getElementById("prensaMore"),
+            lessButton: document.getElementById("prensaLess")
+        }
+    },
+    adhoc: {
+        prefix: "adhoc",
+        delegateCount: 0,
+        delegateInputList: [],
+        elements: {
+            button: document.getElementById("adhocDropdownButton"),
+            group: document.getElementById("adhocGroup"),
+            output: document.getElementById("adhocDelegateNumberOutput"),
+            miniForm: document.getElementById("miniFormadhoc"),
+            cargos: document.getElementById("adhocCargos"),
+            groupedData: document.getElementById("groupedadhocData"),
+            moreButton: document.getElementById("adhocMore"),
+            lessButton: document.getElementById("adhocLess")
+        }
+    },
+    parlamento: {
+        prefix: "parlamento",
+        delegateCount: 0,
+        delegateInputList: [],
+        elements: {
+            button: document.getElementById("parlamentoDropdownButton"),
+            group: document.getElementById("parlamentoGroup"),
+            output: document.getElementById("parlamentoDelegateNumberOutput"),
+            miniForm: document.getElementById("miniFormparlamento"),
+            cargos: document.getElementById("parlamentoCargos"),
+            groupedData: document.getElementById("groupedparlamentoData"),
+            moreButton: document.getElementById("parlamentoMore"),
+            lessButton: document.getElementById("parlamentoLess")
+        }
+    },
+    ams: {
+        prefix: "ams",
+        delegateCount: 0,
+        delegateInputList: [],
+        elements: {
+            button: document.getElementById("amsDropdownButton"),
+            group: document.getElementById("amsGroup"),
+            output: document.getElementById("amsDelegateNumberOutput"),
+            miniForm: document.getElementById("miniFormams"),
+            cargos: document.getElementById("amsCargos"),
+            groupedData: document.getElementById("groupedamsData"),
+            moreButton: document.getElementById("amsMore"),
+            lessButton: document.getElementById("amsLess")
+        }
+    },
+    unesco: {
+        prefix: "unesco",
+        delegateCount: 0,
+        delegateInputList: [],
+        elements: {
+            button: document.getElementById("unescoDropdownButton"),
+            group: document.getElementById("unescoGroup"),
+            output: document.getElementById("unescoDelegateNumberOutput"),
+            miniForm: document.getElementById("miniFormunesco"),
+            cargos: document.getElementById("unescoCargos"),
+            groupedData: document.getElementById("groupedunescoData"),
+            moreButton: document.getElementById("unescoMore"),
+            lessButton: document.getElementById("unescoLess")
+        }
+    },
+    observadores: {
+        prefix: "observadores",
+        delegateCount: 0,
+        delegateInputList: [],
+        elements: {
+            button: document.getElementById("observadoresDropdownButton"),
+            group: document.getElementById("observadoresGroup"),
+            output: document.getElementById("observadoresDelegateNumberOutput"),
+            miniForm: document.getElementById("miniFormobservadores"),
+            cargos: document.getElementById("observadoresCargos"),
+            groupedData: document.getElementById("groupedobservadoresData"),
+            moreButton: document.getElementById("observadoresMore"),
+            lessButton: document.getElementById("observadoresLess")
+        }
+    }
 }
 
-
-allMiniForm(crisisButton, crisisGroup, crisisNumber, crisisNamesRowMax, crisisNames);
-allMiniForm(CSButton, CSGroup, CSNumber, CSNamesRowMax, CSNames);
-allMiniForm(ACNURButton, ACNURGroup, ACNURNumber, ACNURNamesRowMax, ACNURNames);
-allMiniForm(corteButton, corteGroup, corteNumber, corteNamesRowMax, corteNames);
-allMiniForm(prensaButton, prensaGroup, prensaNumber, prensaNamesRowMax, prensaNames);
-allMiniForm(adhocButton, adhocGroup, adhocNumber, adhocNamesRowMax, adhocNames);
-allMiniForm(parlamentoButton, parlamentoGroup, parlamentoNumber, parlamentoNamesRowMax, parlamentoNames);
-allMiniForm(amsButton, amsGroup, amsNumber, amsNamesRowMax, amsNames);
-allMiniForm(unescoButton, unescoGroup, unescoNumber, unescoNamesRowMax, unescoNames);
-allMiniForm(observadoresButton, observadoresGroup, observadoresNumber, observadoresNamesRowMax, observadoresNames);
-
-
-form.addEventListener("submit", async function(event) {
-    event.preventDefault(); 
-
+form.addEventListener("submit", async function (event) {
+    event.preventDefault();
     // Gather form data
     const formData = new FormData(form);
     const data = {};
@@ -139,18 +194,122 @@ form.addEventListener("submit", async function(event) {
     }
 });
 
-const cupoCantidad = document.getElementById('numberSelector');
-const priceTitle = document.getElementById("priceTitle");
-const priceTagFront = document.getElementById("priceTag");
-var total = 0;
-var priceTagBack = "0$";
-cupoCantidad.addEventListener("input", function(){
-    total = (cupoCantidad.value) * 5;
-    priceTagBack = total + "$";
-    priceTitle.innerText = "Total: " + priceTagBack;
-    priceTagFront.value = priceTagBack;
-    console.log(priceTagFront.value);
-});
+const cantidadCuposOutput = document.getElementById('cantidadCuposOutput');
+const totalOutput = document.getElementById("totalOutput");
+const priceSentToSheet = document.getElementById("priceSentToSheet");
+
+const submit = document.getElementById("fake");
+
+
+// Price update
+function priceUpdater(){
+    var inputsNotInBlank = 0;
+    cantidadCuposOutput.value = inputsNotInBlank;
+    priceSentToSheet.value = (inputsNotInBlank*5) + "$";
+    totalOutput.innerText = `Total: ${priceSentToSheet.value}`
+    for (const x in comites){
+        const comite = comites[x];
+        for (let v = 0; v<comite.delegateInputList.length; v++){
+            if (comite.delegateInputList[v].value != ""){
+                inputsNotInBlank++;
+            }    
+        }
+    }
+    cantidadCuposOutput.value = inputsNotInBlank;
+    priceSentToSheet.value = (inputsNotInBlank*5) + "$";
+    totalOutput.innerText = `Total: ${priceSentToSheet.value}`
+}
+
+// Give the event to the inputs
+function updateEvents(){
+    for (const x in comites){
+        const comite = comites[x];
+        for (let v = 0; v<comite.delegateInputList.length; v++){
+            comite.delegateInputList[v].addEventListener("input", priceUpdater);
+        }
+    }    
+}
+
+// More Button Function
+for (const x in comites){
+    comites[x].elements.moreButton.addEventListener("click", function(){
+        priceUpdater();
+        let comite = comites[x];
+        let elemento = comite.elements;
+        comite.delegateCount++;
+        elemento.output.innerText = comite.delegateCount;
+        UniversialAddDelegate(elemento.group, elemento.cargos, comite.delegateCount, comite.delegateInputList);
+        updateEvents();
+    });
+}
+
+// Less Button Function
+for (const x in comites){
+    comites[x].elements.lessButton.addEventListener("click", function(){
+        let comite = comites[x];
+        let elemento = comite.elements;
+        if (comite.delegateCount > 0){
+            comite.delegateCount--;
+            elemento.output.innerText = comite.delegateCount;
+            UniversalRemoveDelegate(elemento.group, comite.delegateInputList);
+            priceUpdater();
+            updateEvents();
+        }
+    });
+}
+
+// Dropdown Button Function
+for (const x in comites){
+    let comite = comites[x];
+    let elemento = comite.elements;
+    elemento.button.addEventListener("click", function(){
+        elemento.group.classList.toggle("hidden");
+    });
+}
+
+function UniversialAddDelegate(group, cargos, delegates, delegateInputElement) {
+    const delegateDiv = document.createElement('div');
+    const delegateLabel = document.createElement('label');
+    const lineBreak = document.createElement("br");
+    const delegateInput = document.createElement('input');
+    const lineBreak2 = document.createElement("br");
+
+    group.insertBefore(delegateDiv, cargos);
+    delegateDiv.appendChild(delegateLabel);
+    delegateDiv.appendChild(lineBreak);
+    delegateDiv.appendChild(delegateInput);
+    delegateDiv.appendChild(lineBreak2);
+
+    delegateLabel.innerText = `Delegado ${delegates} para crisis`;
+    delegateInput.type = "text";
+    delegateInput.id = `delegateForcrisis${delegates}`;
+    delegateInput.required = true;
+    delegateDiv.id = `delegateDiv${delegates}`;
+    delegateInputElement.push(delegateInput);
+}
+
+function UniversalRemoveDelegate(group, delegateInputElement) {
+    let lastDiv = group.lastElementChild;
+    let penultimateDiv = lastDiv.previousElementSibling;
+    delegateInputElement.pop();
+    penultimateDiv.remove();
+}
+
+// function groupAllInputs(groupedData) {
+//     groupedData[x].value = ""
+//     for (let x = 0; x < delegateInputElementList.length; x++) {
+//         groupedData[x].value = groupedData[x].value + delegateInputElementList[x].value + "\n";
+//     }
+//     const text = groupedData[x].value;
+//     const lines = text.split('\n');
+//     lines.pop();
+//     const cleanedText = lines.join('\n');
+//     groupedData[x].value = cleanedText;
+// }
+
+
+
+
 
 const option1 = document.getElementById("option1");
 const option2 = document.getElementById("option2");
@@ -159,23 +318,23 @@ const pwWindow = document.getElementById("pagoMovilWindow")
 
 var paymentButtons = [option1, option2, option3];
 
-for (let x = 0; x<paymentButtons.length;x++){
-    paymentButtons[x].addEventListener("click", function(){
-        for (let y = 0; y<paymentButtons.length;y++){
-            if (paymentButtons[y].checked === false){
+for (let x = 0; x < paymentButtons.length; x++) {
+    paymentButtons[x].addEventListener("change", function () {
+        for (let y = 0; y < paymentButtons.length; y++) {
+            if (paymentButtons[y].checked === false) {
                 paymentButtons[y].classList.add("buttonOff");
                 paymentButtons[y].classList.remove("buttonOn");
             }
-            if (paymentButtons[y].checked === true){
+            if (paymentButtons[y].checked === true) {
                 paymentButtons[y].classList.remove("buttonOff");
                 paymentButtons[y].classList.add("buttonOn");
             }
-            if (option1.checked === true){
+            if (option1.checked === true) {
                 pwWindow.classList.remove("hidden");
-            }    
-            if (option1.checked === false){
+            }
+            if (option1.checked === false) {
                 pwWindow.classList.add("hidden");
-            }    
+            }
         }
     });
 }
