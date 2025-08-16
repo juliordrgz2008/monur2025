@@ -647,7 +647,7 @@ async function getSheet2Stuff() {
         }
 
 
-        delegateLabel.innerText = `Delegado ${delegates} para ${id}`;
+        delegateLabel.innerText = `Nombre del Delegado ${delegates} para ${id}`;
         if (id == "FAO" || id == "OTAN" || id == "Consejo de Seguridad" || id == "UNESCO" || id == "AMS") {
             cargoLabel.innerText = `País para Delegado ${delegates}`;
         }
