@@ -944,10 +944,12 @@ const formType = document.getElementById("formType");
 const dname = document.getElementById("dname");
 const labelDname = document.getElementById("labelDname");
 const formTypeHidden = document.getElementById("formTypeHidden");
+const avisoDelegacion = document.getElementById("avisoDelegacion");
 
 formType.addEventListener("input", function () {
     if (formType.value == "Independiente") {
         faculties.elements.miniForm.classList.add("hidden");
+        avisoDelegacion.classList.add("hidden");
         dname.style = "display: none;";
         labelDname.style = "display: none;";
         faculties.elements.groupedNames.required = false;
@@ -961,6 +963,7 @@ formType.addEventListener("input", function () {
     }
     else {
         faculties.elements.miniForm.classList.remove("hidden");
+        avisoDelegacion.classList.remove("hidden");
         faculties.elements.groupedNames.required = true;
         faculties.elements.groupedNumbers.required = true;
         faculties.elements.firstName.required = true;
